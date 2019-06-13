@@ -1,0 +1,102 @@
+@include exports("notification/layout") {
+
+    $notification-padding-end: calc(#{$notification-padding-x} + #{$icon-size} + #{$icon-spacing}) !default;
+
+    // Base
+    .k-notification-group {
+        position: fixed;
+        display: inline-flex;
+        flex-wrap: wrap;
+        max-height: 100%;
+        flex-direction: column-reverse;
+    }
+
+    .k-notification-container {
+        margin: ($notification-padding-y / 2) 0;
+        display: inline-flex;
+        vertical-align: top;
+
+        &-animating {
+            overflow: hidden;
+        }
+    }
+
+    .k-notification {
+        @include border-radius();
+        padding: 0;
+        border-width: $notification-border-width;
+        border-style: solid;
+    }
+
+    .k-notification-wrap {
+        padding: $notification-padding-y $notification-padding-x;
+        padding-right: $notification-padding-end;
+        font-size: $font-size-sm;
+        white-space: nowrap;
+        cursor: default;
+        position: relative;
+        line-height: $line-height-em;
+
+        > .k-icon {
+            margin-right: $notification-padding-x;
+            vertical-align: middle;
+        }
+
+        > .k-i-close {
+            margin: 0;
+            position: absolute;
+            top: $notification-padding-y;
+            right: $notification-padding-x;
+            cursor: pointer;
+            font-size: inherit;
+            line-height: inherit;
+
+            &::before {
+                font-size: $icon-size;
+            }
+        }
+
+        > .k-notification-content {
+            display: inline-block;
+            white-space: normal;
+            vertical-align: top;
+        }
+    }
+
+    // refactor when https://github.com/telerik/kendo-themes/issues/298 is done
+    .k-notification-group .k-notification-wrap {
+        padding-right: $notification-padding-x;
+    }
+
+    .k-notification-closable > .k-notification-wrap {
+        padding-right: $notification-padding-end;
+    }
+
+    // RTL
+    .k-notification-container[dir='rtl'],
+    .k-rtl .k-notification {
+        .k-notification-wrap {
+            padding-right: $notification-padding-x;
+
+            > .k-notification-content {
+                padding-right: $notification-padding-x;
+            }
+
+            > .k-icon {
+                margin-right: 0;
+                margin-left: $padding-x;
+            }
+
+            > .k-i-close {
+                margin: 0;
+                right: auto;
+                left: $notification-padding-x;
+            }
+        }
+
+        .k-notification-closable > .k-notification-wrap {
+            padding-left: $notification-padding-end;
+            padding-right: $notification-padding-x;
+        }
+    }
+}

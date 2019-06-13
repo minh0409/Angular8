@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var support_1 = require("./support");
+exports.detectMobileOS = support_1.detectMobileOS;
+exports.detectDesktopBrowser = support_1.detectDesktopBrowser;
+exports.browser = support_1.browser;
+exports.mobileOS = support_1.mobileOS;
+exports.touch = support_1.touch;
+exports.msPointers = support_1.msPointers;
+exports.pointers = support_1.pointers;
+exports.touchEnabled = support_1.touchEnabled;

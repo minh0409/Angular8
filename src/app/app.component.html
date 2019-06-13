@@ -1,0 +1,14 @@
+
+<nav class='navbar navbar-expand navbar-light bg-light'>
+   
+    <ul class='nav nav-pills'>
+      <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Welcome</a></li>
+      <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/createCompany']">Create Company</a></li>
+      <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/companyList']">Company List</a></li>
+      <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/kendoGrid']"> Advanced Grid</a></li>
+
+    </ul>
+</nav>
+<div class='container'>
+  <router-outlet></router-outlet>
+</div>

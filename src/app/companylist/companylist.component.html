@@ -1,0 +1,48 @@
+<div class='card'>
+  <div class='card-body'>
+    <div class='table-responsive'>
+      <table class="table table-responsive-sm table-hover table-outline mb-0"
+             *ngIf='companies && companies.length'>
+        <thead>
+          <tr>
+            
+            <th>Name</th>
+            <th>Profits</th>
+            <th>Status</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Email</th>
+            <th>Phone</th>
+           
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let company of companies' (mouseover)="highlightRow(company)"
+            [ngClass] = "{'highlight' : company.Name == selectedName}"
+          >           
+            <td>
+              <a [routerLink]="['/company', company.ID]">
+                {{ company.Name }}
+              </a>
+            </td>
+            <td>{{ company.Financial.Profit | currency:'USD':'symbol':'1.2-2' }}</td>
+            <td>{{ company.Status  }}</td>
+            <td>{{ company.Contacts.FirstName  }}</td>
+            <td>{{ company.Contacts.LastName }}</td>
+            <td>{{ company.Contacts.Email }}</td>
+            <td>{{ company.Contacts.PhoneNumber }}</td>
+            <td><button class="btn btn-success" title="Edit Company"   (click)="edit(company)">EDIT </button></td>
+            <td><button class="btn btn-danger"  title="Delete Company" (click)="delete(company)">DELETE </button></td>
+          
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div *ngIf='errorMessage'
+     class='alert alert-danger'>
+  Error: {{ errorMessage }}
+</div>

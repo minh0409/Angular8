@@ -1,0 +1,42 @@
+<h2> <font color="red">Grid Pagination and Excel Export</font></h2>
+
+<kendo-grid 
+[kendoGridBinding]="data"
+[height]=600
+[pageSize]="pageSize"
+[skip]="skip"
+[pageable]="true"
+(pageChange)="onPageChange($event)"
+>
+    <ng-template kendoGridToolbarTemplate>
+        <button type="button" kendoGridExcelCommand icon="file-excel">Export to Excel</button>
+    </ng-template>
+    <kendo-grid-column field="Name" title="Name" width="100">
+    </kendo-grid-column>
+    <kendo-grid-column field="Financial.Profit" title="Profit" format="{0:c}" width="100" >
+    </kendo-grid-column>
+    <kendo-grid-column field="Financial.Orders" title="Order" >
+    </kendo-grid-column>
+    <kendo-grid-column field="Status" title="Status" >
+    </kendo-grid-column>
+    <kendo-grid-column field="Contacts.FirstName" title="First Name">
+    </kendo-grid-column>
+    <kendo-grid-column field="Contacts.LastName" title="Last Name" >
+    </kendo-grid-column>
+    <kendo-grid-column field="Contacts.Email" title="Email" >
+    </kendo-grid-column>
+    <kendo-grid-column field="Contacts.PhoneNumber" title="Phone" width="120">
+    </kendo-grid-column>
+    <kendo-grid-column field="Address.Street" title="Street">
+    </kendo-grid-column>
+    <kendo-grid-column field="Address.City" title="City">
+    </kendo-grid-column>
+    <kendo-grid-column field="Address.State" title="State">
+    </kendo-grid-column>
+    <kendo-grid-column field="Address.ZipCode" title="Zip">
+    </kendo-grid-column>
+    <kendo-grid-excel fileName="Company.xlsx" [fetchData]="allData">
+    </kendo-grid-excel>    
+
+</kendo-grid>
+

@@ -1,0 +1,86 @@
+<div class='card'
+     *ngIf='company'>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4><font color="red"> {{company.Name}} </font></h4>    
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="callout callout-info">
+                    <small class="text-muted">Contacts: </small>
+                    <br>
+                    <strong class="h4">{{company.Contacts.FirstName}} {{company.Contacts.LastName}} </strong>
+                    <div>
+                    <small class="h6">{{company.Contacts.Email}} </small>
+                    <br> 
+                    <small class="h6">{{company.Contacts.PhoneNumber}} </small>
+                    <br> 
+                   
+                    </div>
+                  </div>
+                  <div class="callout callout-info">
+                    <small class="text-muted">Address: </small>
+                    <br>
+                    <small class="h7">{{company.Address.Street}}  </small>
+                    <div>
+                    <small class="h7">{{company.Address.City}} {{company.Address.State}}</small>
+                    <br> 
+                    <small class="h7">{{company.Address.ZipCode}} </small>
+                    <br> 
+                   
+                    </div>
+                  </div>
+                </div><!--/.col-->
+                <div class="col-sm-6">
+                  <div class="callout callout-danger">
+                    <small class="text-muted">Company Status</small>
+                    <br>
+                    <strong class="h4">{{company.Status}}</strong>
+                  </div>
+                </div><!--/.col-->
+     
+            </div><!--/.col-->
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="callout callout-warning">
+                    <small class="text-muted">Net Profits:</small>
+                    <br>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar bg-success" role="progressbar" aria-valuemax="100000">{{company.Financial.Profit | currency:'USD':'symbol':'1.2-2'}}</div>
+                    </div>
+                    </div>
+                </div><!--/.col-->
+                <div class="col-sm-6">
+                  <div class="callout callout-success">
+                    <small class="text-muted">Number of Orders: </small>
+                    <br>
+                    <strong >{{company.Financial.Orders}}</strong>
+                  </div>
+                  
+                </div><!--/.col-->
+              </div><!--/.row-->
+              
+             
+            </div><!--/.col-->
+          </div><!--/.row-->
+          <br>
+        
+        </div>
+        </div>
+        </div>
+    </div>
+    <div class='card-footer'>
+      <button class='btn btn-outline-secondary'
+              (click)='onBack()'
+              style='width:80px'>
+        <i class='fa fa-chevron-left'></i> Back
+      </button>
+    </div>
+</div>
